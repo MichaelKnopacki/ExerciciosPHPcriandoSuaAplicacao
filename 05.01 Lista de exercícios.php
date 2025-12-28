@@ -4,8 +4,7 @@ $titular = "Michael Knopacki";
 $saldo = 1200;
 $opcao = 0;
 $continuar = true ;
-$saque = 50;
-$deposito = 100;
+
 
 while ($continuar == true){
   
@@ -13,6 +12,7 @@ while ($continuar == true){
     ********************
     Titular:{$titular}
     Saldo atual: R$ {$saldo}
+
     *********************
     1. Consultar saldo atual
     2. Sacar valor
@@ -20,24 +20,25 @@ while ($continuar == true){
     4. Sair\n
     ";
     
-    echo "Selecione uma opção: ";
+    echo "Selecione uma opção: \n";
     $opcao = trim(fgets(STDIN));
     echo "A Opção selecionada é {$opcao} \n";
     
     if ($opcao == 1){
-        echo "Boa tarde, Sr. {$titular}. Seu saldo é {$saldo}.";
-        $continuar == true;
+        echo "\n Boa tarde, Sr. {$titular}. Seu saldo é {$saldo}. \n";
     }elseif ($opcao == 2) {
+        echo "Qual valor pretende sacar? \n";
+        $saque = trim(fgets(STDIN));
         $saldo = $saldo - $saque;
-        echo "Boa tarde, Sr. {$titular}. Você realizou um saque de R$ {$saque}, agora seu saldo é de R$ {$saldoAtual}.";
-        $continuar == true;
+        echo "\n Boa tarde, Sr. {$titular}. Você realizou um saque de R$ {$saque}, agora seu saldo é de R$ {$saldo}. \n";
     }elseif ($opcao == 3){
+        echo "Qual valor pretende depositar? \n";
+        $deposito = trim(fgets(STDIN));
         $saldo = $saldo + $deposito;
-        echo "Boa tarde, Sr. {$titular}. Você realizou um depósito de R$ {$saque}, agora seu saldo é de R$ {$saldoAtual}.";
-        $continuar == true;
+        echo "\n Boa tarde, Sr. {$titular}. Você realizou um depósito de R$ {$deposito}, agora seu saldo é de R$ {$saldo}. \n";
     }elseif ($opcao == 4){
-        echo "Obrigado volte sempre";
-        $continuar == false;
+        echo "\n Obrigado volte sempre \n";
+        $continuar = false;
         break;
     }
 }
